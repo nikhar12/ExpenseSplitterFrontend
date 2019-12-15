@@ -1,0 +1,14 @@
+<p>create-new works!</p>
+
+
+
+<div>
+  <input type="text" [(ngModel)]='name' />
+  <textarea rows="10"  [(ngModel)]='description' ></textarea>
+  <select  *ngIf='userslist' >
+    <option *ngFor="let user of userslist" >
+      {{ user}}
+    </option>
+  </select>
+  <input type="button" (click)='createNewGroup()' />
+</div>

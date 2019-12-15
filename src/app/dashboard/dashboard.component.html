@@ -1,0 +1,31 @@
+<p>dashboard works!</p>
+
+
+<div>
+  Groups -
+
+  1 your groups
+  2 see all groups
+  3 open group link - get users info and description and name of that group.
+
+  User -
+  1 open user profile link
+  2
+</div>
+
+<div>
+  Your Groups
+
+<ul>
+  <li *ngFor = "let u of groups" >
+{{u.groupname}}
+  </li>
+</ul>
+
+--your groups
+</div>
+
+
+<div>
+  <a [routerLink]="'./group/creategroup'">create new</a>
+</div>
