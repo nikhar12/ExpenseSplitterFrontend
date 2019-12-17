@@ -18,14 +18,15 @@
 
 <ul>
   <li *ngFor = "let u of groups" >
-{{u.groupname}}
+    <a [routerLink] = "['../group']" [queryParams]="{id: u.groupid}" >
+    {{u.groupname}}
+  </a>
   </li>
 </ul>
 
---your groups
 </div>
 
 
 <div>
-  <a [routerLink]="'./group/creategroup'">create new</a>
+  <a [routerLink]="'../group/create'">create new</a>
 </div>

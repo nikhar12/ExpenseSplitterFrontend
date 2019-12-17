@@ -1,0 +1,15 @@
+<p>create-expense works!</p>
+
+
+<div>
+  Expense Name: <input type="text" value="" [(ngModel)] = "expenseName" placeholder = 'ex name' />
+  Amount: <input type="text" placeholder = 'amount'  value="" [(ngModel)] = "amount"/>
+  Amountpaid by: <input type="text" placeholder = 'amount paid by' value="" [(ngModel)] = "amountPaidBy"/>
+  created by: <input type="text" [(ngModel)] = "createdBy" disabled="true" />
+  Users: <select [(ngModel)]="selectedUsers" multiple>
+    <option *ngFor = "let u of allGroupUsers" [value]="u" >
+{{u}}
+    </option>
+  </select>
+  <input type="submit" (click) = "createExpense()"/>
+</div>

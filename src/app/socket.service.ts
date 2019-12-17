@@ -23,16 +23,26 @@ export class SocketService {
   constructor(public http: HttpClient ) {
     this.socket = io(this.url);
 
+
    }
 
+ /*   public init = (roomname) => {
+     this.socket.emit('join', roomname);
+   } */
 
-   public onlineUserList = () => {
-    return new Observable((observer) => {
-      this.socket.on('hello', (data) => {
+   public recvBroadcast = () => {
+     return new Observable((observer) => {
+      this.socket.on('broadcast', (data) => {
         console.log(data);
         observer.next(data);
-        });
+     });
+
     });
+   }
+
+   public init = (roomname) => {
+       console.log('kk');
+       this.socket.emit('join', roomname);
   }
 
 

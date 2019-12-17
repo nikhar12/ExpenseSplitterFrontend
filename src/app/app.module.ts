@@ -15,6 +15,8 @@ import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { GroupManagementModule } from './group-management/group-management.module';
 import { Cookie, CookieService} from 'ng2-cookies';
 
+import { ExpenseManagementModule } from './expense-management/expense-management.module';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +28,10 @@ import { Cookie, CookieService} from 'ng2-cookies';
     BrowserModule,
     UserManagementModule,
     GroupManagementModule,
+    ExpenseManagementModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'dashboard', component: DashboardComponent}
-      ])
+    HttpClientModule
   ],
   providers: [CookieService, AppService],
   bootstrap: [AppComponent]

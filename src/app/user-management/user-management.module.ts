@@ -13,15 +13,7 @@ import {RouterModule } from '@angular/router';
   declarations: [SignupComponent, LoginComponent, ForgotPasswordComponent, ChangePasswordComponent, UserProfileComponent],
   imports: [
     CommonModule,
-    FormsModule,
-    RouterModule.forChild([
-
-      {path: 'login', component: LoginComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'forgot-password', component: ForgotPasswordComponent, pathMatch: 'full'}
-
-
-    ])
+    FormsModule
   ]
 })
 export class UserManagementModule { }

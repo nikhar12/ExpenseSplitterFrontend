@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { ViewExpenseComponent } from './view-expense/view-expense.component';
+import { CreateExpenseComponent } from './create-expense/create-expense.component';
 
-import { ViewGroupComponent } from './view-group/view-group.component'
-import { CreateNewComponent } from './create-new/create-new.component';
+
+
 
 @NgModule({
-  declarations: [CreateNewComponent, ViewGroupComponent],
+  declarations: [ViewExpenseComponent, CreateExpenseComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,4 +19,4 @@ import { CreateNewComponent } from './create-new/create-new.component';
     RouterModule,
   ]
 })
-export class GroupManagementModule { }
+export class ExpenseManagementModule { }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpParams, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +13,51 @@ export class AppService {
   constructor(public http: HttpClient) { }
 /* methods for group management*/
 
+public getAllUsersForAGroup(id): Observable<any> {
+  const params = new HttpParams()
+  .set('groupid', id);
 
-public getAllUsersOnline = () => {
-// to be done with socket
+  return this.http.post(`${this.url}/exsp/api/v1/group/getAllUsers`, params);
 }
 
+public getAllUsers(): Observable<any> {
+return this.http.get(`${this.url}/exsp/api/v1/user/getallusers`);
+}
+
+public getAllExpensesInGroup(id): Observable<any> {
+  const params = new HttpParams()
+  .set('groupid', id);
+
+  return this.http.post(`${this.url}/exsp/api/v1/group/expense`, params);
+}
+public createExpense(data): Observable<any> {
+
+  const params = new HttpParams()
+  .set('groupid', data.id)
+  .set('totalExpense', data.amount )
+  .set('totalPaidBy', data.totalPaidBy)
+  .set('expensename', data.expensename)
+  .set('createdby', data.createdby)
+  .set('users', data.users);
+
+  // console.log('data.users ' + data.users);
+  return this.http.post(`${this.url}/exsp/api/v1/group/` + data.id + `/expense/create`, params);
+}
+public getAllUsersForExpense(id): Observable<any> {
+
+  const params = new HttpParams()
+  .set('expenseid', id);
+
+  return this.http.post(`${this.url}/exsp/api/v1/expense/users`, params);
+}
+public createGroup(data): Observable<any> {
+  const params = new HttpParams()
+  .set('groupname', data.groupname)
+  .set('createdby', data.createdby)
+  .set('users', data.users);
+
+  return this.http.post(`${this.url}/exsp/api/v1/group/create`, params);
+}
 
 /********************************/
 
